@@ -312,7 +312,7 @@ if (!op.test && (!op.notified || op.already_shown))
     return;
 
 op.setCookie=function(hours) { //sets a cookie that the user has already seen the notification, closed it or permanently wants to hide it. No information on the user is stored.
-    document.cookie = 'browserupdateorg=pause; expires='+(new Date(new Date().getTime()+3600000*hours)).toGMTString()+'; path=/; SameSite=Lax'+(/https:/.test(location.href)?'; Secure':'')
+    document.cookie = 'browserupdateorg=pause; expires='+(new Date(new Date().getTime()+3600000*hours)).toGMTString()+'; path=/; SameSite=Lax'+(/https:/.test(location.href)?'; Secure':'')+(op.cookiedomain?`; Domain=${op.cookiedomain}`:'')
 }
 
 if (op.already_shown && (op.ignorecookie || op.test))
